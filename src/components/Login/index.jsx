@@ -1,10 +1,13 @@
-import { notification } from 'antd';
-import axios from 'axios';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+import { errorNotifier } from '../../Generic/NotificationAPI';
+import { useAxios } from '../../hooks/useAxios';
+import { LoadingOutlined } from '@ant-design/icons';
 import { Wrapper } from './style';
 
 const Login = () => {
+	const axios = useAxios();
 	const [warningAnimation, setWarningAnimation] = useState(false);
+	const [loading, setLoading] = useState(false);
 	const numberRef = useRef();
 	const passwordRef = useRef();
 
@@ -15,45 +18,40 @@ const Login = () => {
 		}, 1000);
 	};
 
+	const onKeyDetect = e => {
+		console.log(e);
+		if (e.key === 'Enter' || e.type === 'click') return onAuth();
+	};
+
 	const onAuth = async () => {
+		if (loading) return;
 		const number = numberRef.current.input.value;
 		const password = passwordRef.current.input.value;
 
-		try {
-			const response = await axios({
-				url: `${process.env.REACT_APP_BASE_URL}/user/sign-in`,
-				method: 'POST',
-				data: {
-					password: password,
-					phoneNumber: '+998' + number,
-				},
-			});
-
-			if (!response) throw new Error();
-			localStorage.setItem('token', response.data.data.token);
-			notification.success({
-				message: 'Successfully logged in',
-			});
-		} catch (error) {
-			if (!error?.response) {
-				notification.error({
-					message: 'No Server Response',
-				});
-			} else if (error.response?.status === 400) {
-				playAnimation();
-				notification.error({
-					message: 'Please fill all fields',
-				});
-			} else if (error.response?.status === 401) {
-				notification.error({
-					message: 'Unauthorized',
-				});
-			} else {
-				notification.error({
-					message: 'Login failed',
-				});
-			}
+		if (!password || !number) {
+			playAnimation();
+			errorNotifier({ errorStatus: 'notFillingError' });
+			return;
 		}
+
+		setLoading(true);
+
+		const response = await axios({
+			url: `/user/sign-in`,
+			method: 'POST',
+			body: {
+				password: password,
+				phoneNumber: '+998' + number,
+			},
+		});
+
+		setLoading(false);
+
+		if (response?.response.status >= 400) return errorNotifier({ errorStatus: response?.response.status });
+
+		const { token } = response.data.data;
+
+		localStorage.setItem('token', token);
 	};
 
 	return (
@@ -62,9 +60,9 @@ const Login = () => {
 				<Wrapper.Title>Yana bir bor salom!</Wrapper.Title>
 				<Wrapper.Description>Biz har kuni kechagidan ko'ra yaxshiroq xizmat ko'rsatamiz</Wrapper.Description>
 				<Wrapper.Input ref={numberRef} addonBefore='+998' placeholder='99 111 11 11' bordered={false} type='number' />
-				<Wrapper.PasswordInput ref={passwordRef} placeholder='Your Password' />
-				<Wrapper.Button warningAnimation={warningAnimation} onClick={onAuth}>
-					Login
+				<Wrapper.PasswordInput onKeyDown={onKeyDetect} ref={passwordRef} placeholder='Your Password' />
+				<Wrapper.Button warningAnimation={warningAnimation} onClick={onKeyDetect}>
+					{loading ? <LoadingOutlined /> : 'Login'}
 				</Wrapper.Button>
 			</Wrapper.Container>
 		</Wrapper>
