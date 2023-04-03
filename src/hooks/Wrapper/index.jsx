@@ -5,13 +5,17 @@ import { ConfigProvider } from 'antd';
 import ru_RU from 'antd/locale/ru_RU';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
-import { ProviderAuth } from '../useAuth/index.jsx';
+import { AuthProvider } from 'react-auth-kit';
 
 const query = new QueryClient();
 
 const Wrapper = ({ children }) => {
 	return (
-		<ProviderAuth>
+		<AuthProvider
+			authType={'cookie'}
+			authName={'_auth'}
+			cookieDomain={window.location.hostname}
+			cookieSecure={window.location.protocol === 'https:'}>
 			<BrowserRouter>
 				<QueryClientProvider client={query}>
 					<Provider store={store}>
@@ -19,7 +23,7 @@ const Wrapper = ({ children }) => {
 					</Provider>
 				</QueryClientProvider>
 			</BrowserRouter>
-		</ProviderAuth>
+		</AuthProvider>
 	);
 };
 

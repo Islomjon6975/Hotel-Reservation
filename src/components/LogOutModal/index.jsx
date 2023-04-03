@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { ModalContainer } from './style';
-import ReloadPage from '../../hooks/ReloadPage';
+import { useSignOut } from 'react-auth-kit';
 
 const LogOutModal = ({ title, openLogOutModal, setOpenLogOutModal }) => {
 	const [confirmLoading, setConfirmLoading] = useState(false);
+	const signOut = useSignOut();
 
 	const handleOk = () => {
 		setConfirmLoading(true);
@@ -12,7 +13,7 @@ const LogOutModal = ({ title, openLogOutModal, setOpenLogOutModal }) => {
 			setOpenLogOutModal(false);
 			setConfirmLoading(false);
 			localStorage.removeItem('token');
-			ReloadPage();
+			signOut();
 		}, 2000);
 	};
 	const handleCancel = () => {

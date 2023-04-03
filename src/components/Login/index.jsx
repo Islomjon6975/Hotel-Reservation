@@ -3,10 +3,13 @@ import { errorNotifier } from '../../Generic/NotificationAPI';
 import { useAxios } from '../../hooks/useAxios';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Wrapper } from './style';
-import ReloadPage from '../../hooks/ReloadPage';
+import { useSignIn } from 'react-auth-kit';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+	const navigate = useNavigate();
 	const axios = useAxios();
+	const signIn = useSignIn();
 	const [warningAnimation, setWarningAnimation] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [formattedPhoneNumber, setFormattedPhoneNumber] = useState('');
@@ -21,7 +24,6 @@ const Login = () => {
 	};
 
 	const onKeyDetect = e => {
-		console.log(e);
 		if (e.key === 'Enter' || e.type === 'click') return onAuth();
 	};
 
@@ -55,10 +57,17 @@ const Login = () => {
 
 		if (response?.response?.status >= 400) return errorNotifier({ errorStatus: response?.response?.status });
 
-		const { token } = response.data.data;
+		const { token, user } = response.data.data;
 
 		localStorage.setItem('token', token);
-		ReloadPage();
+
+		signIn({
+			token: token,
+			expiresIn: 3600,
+			tokenType: 'Bearer',
+			authState: user,
+		});
+		navigate('/');
 	};
 
 	const formatPhoneNumber = value => {

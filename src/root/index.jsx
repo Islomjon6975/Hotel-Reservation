@@ -3,14 +3,18 @@ import { Route, Routes } from 'react-router-dom';
 import Home from '../components/Home';
 import Login from '../components/Login';
 import Navbar from '../components/Navbar';
-import { useAuth } from '../hooks/useAuth';
+import { RequireAuth } from 'react-auth-kit';
 
 const Root = () => {
-	const { user } = useAuth();
-
 	return (
 		<Routes>
-			<Route path='/' element={<Navbar />}>
+			<Route
+				path='/'
+				element={
+					<RequireAuth loginPath={'/login'}>
+						<Navbar />
+					</RequireAuth>
+				}>
 				<Route index element={<Home />} />
 			</Route>
 			<Route path='/login' element={<Login />} />

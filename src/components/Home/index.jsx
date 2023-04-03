@@ -7,8 +7,11 @@ import icon3 from '../../assets/icons/end_time.svg';
 import icon4 from '../../assets/icons/empty_place.svg';
 import icon5 from '../../assets/icons/report.svg';
 import { CardWrapper, CenteredWrapper, Title } from '../../Generic/Styles';
-
+import { useAuthUser } from 'react-auth-kit';
 const Home = () => {
+	const auth = useAuthUser();
+
+	console.log(auth(), 'auth');
 	return (
 		<Wrapper>
 			<CenteredWrapper>
