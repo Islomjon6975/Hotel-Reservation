@@ -1,12 +1,12 @@
 import { SettingOutlined, TranslationOutlined, LogoutOutlined } from '@ant-design/icons';
 import { DropDownContentWrapper } from '../Styles';
 
-export const useDropDown = ({ settingHandler, languageHandler, logoutHandler }) => {
+export const useDropDown = () => {
 	const customIconStyle = {
 		fontSize: '18px',
 	};
 
-	const loginItems = [
+	const loginItems = ({ settingHandler, languageHandler, logoutHandler }) => [
 		{
 			label: <DropDownContentWrapper onClick={settingHandler}>Settings</DropDownContentWrapper>,
 			key: '0',
