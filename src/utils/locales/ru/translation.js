@@ -1,0 +1,56 @@
+export const ru = {
+	home_page: {
+		home_locale_modal_title: 'Изменение языка',
+		home_locale_modal_russian: 'Русский',
+		home_locale_modal_english: 'English',
+		home_locale_modal_uzKrill: 'Ўзбек',
+		home_locale_modal_uzLotin: "O'zbek",
+		home_title: 'Разделы',
+		home_all_users_section: 'Все пользователи',
+		home_half_users_section: 'Тайм-аут',
+		home_up_users_section: 'Время вышло',
+		home_available_places: 'Пустые места',
+		home_report_title: 'Отчеты',
+		home_report: 'Отчет',
+	},
+	dropdown: {
+		navbar_dropdown_setting: 'Настройки',
+		navbar_dropdown_language: 'Сменить язык',
+		navbar_dropdown_logout: 'Выйти из системы',
+	},
+	modal: {
+		modal_cancel: 'Отменить',
+		modal_ok: 'Хорошо',
+		modal_change: 'Изменить',
+		modal_save: 'Сохранить',
+		modal_edit: 'Редактировать',
+		modal_logout: 'Выйти из системы',
+		modal_logout_text: 'Вы действительно хотите бросить?',
+		modal_add: 'Добавь',
+		modal_delete: 'Удалить',
+		modal_move: 'Подвиньте',
+		modal_profile: 'Профиль',
+		modal_name: 'Имя',
+		modal_surname: 'Фамилия',
+		modal_version: 'версия',
+	},
+	building_control_page: {
+		building_control_page_title: 'Типы зданий',
+		building_control_ordinary_rooms: 'Обычные номера',
+		building_control_luxury_rooms: 'Роскошные номера',
+		building_control_cottages: 'Коттеджи',
+		building_control_building: 'Здание',
+	},
+
+	login_page: {
+		login_page_title: 'И снова здравствуйте!',
+		login_page_description: 'Мы обеспечиваем лучший сервис каждый день, чем вчера',
+		login_page_password_placeholder: 'Ваш пароль',
+		login_page_button: 'Входить',
+	},
+
+	notification_api: {
+		notification_api_notFound: 'Неверный пароль или номер телефона!',
+		notification_api_notFillingError: 'Пожалуйста заполните все поля!',
+	},
+};

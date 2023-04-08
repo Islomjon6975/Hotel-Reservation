@@ -1,34 +1,57 @@
 import React from 'react';
 import { useState } from 'react';
 import { ModalContainer } from './style';
-import ReloadPage from '../../hooks/ReloadPage';
 import { CenteredWrapper } from '../../Generic/Styles';
+import { useTranslation } from 'react-i18next';
+import { Typography } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSettingModalVisibility } from '../../redux/modalSlice';
+const { Text } = Typography;
 
-const SettingsModal = ({ title, openSettingsModal, setOpenSettingsModal }) => {
+const SettingsModal = () => {
+	const { t } = useTranslation();
+	const dispatch = useDispatch();
+	const { settingModalVisibility } = useSelector(state => state.modal);
 	const [confirmLoading, setConfirmLoading] = useState(false);
 
 	const handleOk = () => {
 		setConfirmLoading(true);
 		setTimeout(() => {
-			setOpenSettingsModal(false);
 			setConfirmLoading(false);
-			ReloadPage();
-		}, 2000);
+		}, 1000);
 	};
-	const handleCancel = () => {
-		setOpenSettingsModal(false);
-	};
+
+	const handleCancel = () => dispatch(setSettingModalVisibility());
+
 	return (
 		<ModalContainer
 			width={416}
-			title={title}
-			open={openSettingsModal}
+			title={t('modal.modal_profile')}
+			open={settingModalVisibility}
 			onOk={handleOk}
-			okText={'Saqlash'}
-			cancelText='Bekor qilish'
+			okText={t('modal.modal_save')}
+			okButtonProps={{ disabled: true }}
+			cancelText={t('modal.modal_cancel')}
 			confirmLoading={confirmLoading}
 			onCancel={handleCancel}>
-			<CenteredWrapper>Settings</CenteredWrapper>
+			<CenteredWrapper>
+				<ModalContainer.Wrapper>
+					<ModalContainer.Avatar>I</ModalContainer.Avatar>
+					<ModalContainer.Form>
+						<ModalContainer.Form.Item>
+							<ModalContainer.Form.Label>{t('modal.modal_name')}:</ModalContainer.Form.Label>
+							<ModalContainer.Form.Input placeholder='' disabled />
+						</ModalContainer.Form.Item>
+						<ModalContainer.Form.Item>
+							<ModalContainer.Form.Label>{t('modal.modal_surname')}:</ModalContainer.Form.Label>
+							<ModalContainer.Form.Input placeholder='' disabled />
+						</ModalContainer.Form.Item>
+					</ModalContainer.Form>
+				</ModalContainer.Wrapper>
+				<Text type='secondary' style={{ marginTop: '20px' }}>
+					Nihol 0.0.1 {t('modal.modal_version')}
+				</Text>
+			</CenteredWrapper>
 		</ModalContainer>
 	);
 };

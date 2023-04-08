@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as arrow } from '../../assets/icons/arrow.svg';
 
 export const DropDownContentWrapper = styled.div`
 	padding: 5px 0 !important;
@@ -68,3 +69,5 @@ export const CenteredWrapper = styled.div`
 	-webkit-box-align: center;
 	align-items: center;
 `;
+
+export const Arrow = styled(arrow)``;

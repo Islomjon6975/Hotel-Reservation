@@ -1,37 +1,28 @@
 import { Dropdown } from 'antd';
 import { useDropDown } from '../../Generic/DropDownAPI';
 import { Wrapper } from './style';
-import { useState } from 'react';
 import LogOutModal from '../LogOutModal';
 import LanguageModal from '../LanguageModal';
 import SettingsModal from '../SettingsModal';
 import { Outlet, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setLangModalVisibility, setLogoutModalVisibility, setSettingModalVisibility } from '../../redux/modalSlice';
 
 const Navbar = () => {
 	const navigate = useNavigate();
-	const [openLogOutModal, setOpenLogOutModal] = useState(false);
-	const [openLanguageModal, setOpenLanguageModal] = useState(false);
-	const [openSettingsModal, setOpenSettingsModal] = useState(false);
-
+	const dispatch = useDispatch();
 	const { loginItems } = useDropDown();
 
-	function settingHandler() {
-		console.log('settingHandler');
-		setOpenSettingsModal(true);
-	}
-
-	function languageHandler() {
-		console.log('languageHandler');
-		setOpenLanguageModal(true);
-	}
-
-	function logoutHandler() {
-		console.log('logoutHandler');
-		setOpenLogOutModal(true);
-	}
+	// User Modal
+	const settingHandler = () => dispatch(setSettingModalVisibility());
+	const languageHandler = () => dispatch(setLangModalVisibility());
+	const logoutHandler = () => dispatch(setLogoutModalVisibility());
 
 	return (
 		<>
+			<SettingsModal />
+			<LogOutModal />
+			<LanguageModal />
 			<Wrapper>
 				<Wrapper.Title onClick={() => navigate('/')}>Nihol</Wrapper.Title>
 				<Dropdown
@@ -42,13 +33,6 @@ const Navbar = () => {
 					trigger={['click']}>
 					<Wrapper.Avatar>I</Wrapper.Avatar>
 				</Dropdown>
-				<SettingsModal title='Profile' openSettingsModal={openSettingsModal} setOpenSettingsModal={setOpenSettingsModal} />
-				<LogOutModal title='Tasdiqlang' openLogOutModal={openLogOutModal} setOpenLogOutModal={setOpenLogOutModal} />
-				<LanguageModal
-					title="Tilni o'zgartirish"
-					openLanguageModal={openLanguageModal}
-					setOpenLanguageModal={setOpenLanguageModal}
-				/>
 			</Wrapper>
 			<Outlet />
 		</>

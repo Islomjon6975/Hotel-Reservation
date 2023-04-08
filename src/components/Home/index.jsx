@@ -7,26 +7,28 @@ import icon3 from '../../assets/icons/end_time.svg';
 import icon4 from '../../assets/icons/empty_place.svg';
 import icon5 from '../../assets/icons/report.svg';
 import { CardWrapper, CenteredWrapper, Title } from '../../Generic/Styles';
-import { useAuthUser } from 'react-auth-kit';
-const Home = () => {
-	const auth = useAuthUser();
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-	console.log(auth(), 'auth');
+const Home = () => {
+	const navigate = useNavigate();
+	const { t } = useTranslation();
+
 	return (
 		<Wrapper>
 			<CenteredWrapper>
-				<Title>Bo'limlar:</Title>
+				<Title>{t('home_page.home_title')}:</Title>
 				<CardWrapper>
-					<Card title={'Barcha mizojlar'} image={icon1} />
-					<Card title={'Oraliq muddat'} image={icon2} />
+					<Card title={t('home_page.home_all_users_section')} image={icon1} onClick={() => navigate('/all-users')} />
+					<Card title={t('home_page.home_half_users_section')} image={icon2} onClick={() => navigate('/middle-users')} />
 				</CardWrapper>
 				<CardWrapper>
-					<Card title={'Muddat tugash.'} image={icon3} />
-					<Card title={'Mavjud joylar'} image={icon4} />
+					<Card title={t('home_page.home_up_users_section')} image={icon3} onClick={() => navigate('/end-users')} />
+					<Card title={t('home_page.home_available_places')} image={icon4} onClick={() => navigate('/building-control')} />
 				</CardWrapper>
-				<Title>Hisobotlar:</Title>
+				<Title>{t('home_page.home_report_title')}:</Title>
 				<CardWrapper>
-					<Card title={'Hisobot'} image={icon5} />
+					<Card title={t('home_page.home_report')} image={icon5} onClick={() => navigate('/report')} />
 				</CardWrapper>
 			</CenteredWrapper>
 		</Wrapper>

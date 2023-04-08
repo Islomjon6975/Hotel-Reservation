@@ -2,35 +2,40 @@ import React from 'react';
 import { useState } from 'react';
 import { ModalContainer } from './style';
 import { useSignOut } from 'react-auth-kit';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLogoutModalVisibility } from '../../redux/modalSlice';
 
-const LogOutModal = ({ title, openLogOutModal, setOpenLogOutModal }) => {
-	const [confirmLoading, setConfirmLoading] = useState(false);
+const LogOutModal = () => {
+	const { t } = useTranslation();
 	const signOut = useSignOut();
+	const { logoutModalVisibility } = useSelector(state => state.modal);
+	const dispatch = useDispatch();
+	const [confirmLoading, setConfirmLoading] = useState(false);
 
 	const handleOk = () => {
 		setConfirmLoading(true);
 		setTimeout(() => {
-			setOpenLogOutModal(false);
 			setConfirmLoading(false);
 			localStorage.removeItem('token');
 			signOut();
-		}, 2000);
+		}, 1000);
 	};
-	const handleCancel = () => {
-		setOpenLogOutModal(false);
-	};
+
+	const handleCancel = () => dispatch(setLogoutModalVisibility());
+
 	return (
 		<ModalContainer
 			width={416}
-			title={title}
-			open={openLogOutModal}
+			title={t('modal.modal_logout')}
+			open={logoutModalVisibility}
 			onOk={handleOk}
-			okText={'Tark etish'}
-			cancelText='Bekor qilish'
+			okText={t('modal.modal_logout')}
+			cancelText={t('modal.modal_cancel')}
 			confirmLoading={confirmLoading}
 			onCancel={handleCancel}
 			className='logout'>
-			<p>Haqiqatan ham tark etishni xohlaysizmi?</p>
+			<p>{t('modal.modal_logout_text')}</p>
 		</ModalContainer>
 	);
 };

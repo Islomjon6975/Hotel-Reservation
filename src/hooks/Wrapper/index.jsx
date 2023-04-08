@@ -3,11 +3,8 @@ import { Provider } from 'react-redux';
 import store from '../../redux/index.js';
 import { ConfigProvider } from 'antd';
 import ru_RU from 'antd/locale/ru_RU';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from 'react-auth-kit';
-
-const query = new QueryClient();
 
 const Wrapper = ({ children }) => {
 	return (
@@ -17,11 +14,9 @@ const Wrapper = ({ children }) => {
 			cookieDomain={window.location.hostname}
 			cookieSecure={window.location.protocol === 'https:'}>
 			<BrowserRouter>
-				<QueryClientProvider client={query}>
-					<Provider store={store}>
-						<ConfigProvider locale={ru_RU}>{children}</ConfigProvider>
-					</Provider>
-				</QueryClientProvider>
+				<Provider store={store}>
+					<ConfigProvider locale={ru_RU}>{children}</ConfigProvider>
+				</Provider>
 			</BrowserRouter>
 		</AuthProvider>
 	);

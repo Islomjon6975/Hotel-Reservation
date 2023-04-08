@@ -1,0 +1,56 @@
+export const en = {
+	home_page: {
+		home_locale_modal_title: 'Change Language',
+		home_locale_modal_russian: 'Русский',
+		home_locale_modal_english: 'English',
+		home_locale_modal_uzKrill: 'Ўзбек',
+		home_locale_modal_uzLotin: "O'zbek",
+		home_title: 'Secions',
+		home_all_users_section: 'All users',
+		home_half_users_section: 'Half time',
+		home_up_users_section: 'Time up',
+		home_available_places: 'Empty places',
+		home_report_title: 'Reports',
+		home_report: 'Report',
+	},
+	dropdown: {
+		navbar_dropdown_setting: 'Settings',
+		navbar_dropdown_language: 'Change Language',
+		navbar_dropdown_logout: 'Log out',
+	},
+	modal: {
+		modal_cancel: 'Cancel',
+		modal_ok: 'Ok',
+		modal_change: 'Change',
+		modal_save: 'Save',
+		modal_edit: 'Edit',
+		modal_logout: 'Logout',
+		modal_logout_text: 'Do you really want to leave?',
+		modal_add: 'Add',
+		modal_delete: 'Delete',
+		modal_move: 'Move',
+		modal_profile: 'Profile',
+		modal_name: 'Name',
+		modal_surname: 'Surname',
+		modal_version: 'version',
+	},
+	building_control_page: {
+		building_control_page_title: 'Building types',
+		building_control_ordinary_rooms: 'Ordinary Rooms',
+		building_control_luxury_rooms: 'Luxury Rooms',
+		building_control_cottages: 'Cottages',
+		building_control_building: 'Building',
+	},
+
+	login_page: {
+		login_page_title: 'Hello again!',
+		login_page_description: 'We provide better service every day than yesterday',
+		login_page_password_placeholder: 'Your Password',
+		login_page_button: 'Login',
+	},
+
+	notification_api: {
+		notification_api_notFound: 'Password or PhoneNumber is wrong!',
+		notification_api_notFillingError: 'Please fill all fields!',
+	},
+};

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Modal } from 'antd';
+import { Input, Modal } from 'antd';
 
 export const ModalContainer = styled(Modal)`
 	.ant-btn-primary {
@@ -35,4 +35,46 @@ export const ModalContainer = styled(Modal)`
 			align-items: flex-end;
 		}
 	}
+`;
+
+ModalContainer.Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	-webkit-box-align: center;
+	align-items: center;
+	width: 100%;
+`;
+
+ModalContainer.Avatar = styled.div`
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	font-size: 20px;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+	color: rgb(255, 255, 255);
+	background: rgb(245, 106, 0);
+
+	@media (max-width: 800px) {
+		width: 70px;
+		height: 70px;
+	}
+`;
+
+ModalContainer.Form = styled.div`
+	width: 100%;
+`;
+
+ModalContainer.Form.Item = styled.div`
+	margin-top: 20px;
+	width: 100%;
+`;
+
+ModalContainer.Form.Label = styled.div``;
+
+ModalContainer.Form.Input = styled(Input)`
+	width: 100%;
 `;

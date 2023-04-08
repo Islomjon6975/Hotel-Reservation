@@ -1,12 +1,14 @@
 import { useRef, useState } from 'react';
-import { errorNotifier } from '../../Generic/NotificationAPI';
+import { useErrorNotifier } from '../../Generic/NotificationAPI';
 import { useAxios } from '../../hooks/useAxios';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Wrapper } from './style';
 import { useSignIn } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
+	const { t } = useTranslation();
 	const navigate = useNavigate();
 	const axios = useAxios();
 	const signIn = useSignIn();
@@ -15,6 +17,9 @@ const Login = () => {
 	const [formattedPhoneNumber, setFormattedPhoneNumber] = useState('');
 	const numberRef = useRef();
 	const passwordRef = useRef();
+	const { errorNotifier } = useErrorNotifier();
+
+	console.log();
 
 	const playAnimation = () => {
 		setWarningAnimation(true);
@@ -91,8 +96,8 @@ const Login = () => {
 	return (
 		<Wrapper>
 			<Wrapper.Container>
-				<Wrapper.Title>Yana bir bor salom!</Wrapper.Title>
-				<Wrapper.Description>Biz har kuni kechagidan ko'ra yaxshiroq xizmat ko'rsatamiz</Wrapper.Description>
+				<Wrapper.Title>{t('login_page.login_page_title')}</Wrapper.Title>
+				<Wrapper.Description>{t('login_page.login_page_description')}</Wrapper.Description>
 				<Wrapper.Input
 					ref={numberRef}
 					addonBefore='+998'
@@ -102,9 +107,13 @@ const Login = () => {
 					onChange={phoneNumberFormatter}
 					value={formattedPhoneNumber}
 				/>
-				<Wrapper.PasswordInput onKeyDown={onKeyDetect} ref={passwordRef} placeholder='Your Password' />
+				<Wrapper.PasswordInput
+					onKeyDown={onKeyDetect}
+					ref={passwordRef}
+					placeholder={t('login_page.login_page_password_placeholder')}
+				/>
 				<Wrapper.Button warningAnimation={warningAnimation} onClick={onKeyDetect}>
-					{loading ? <LoadingOutlined /> : 'Login'}
+					{loading ? <LoadingOutlined /> : t('login_page.login_page_button')}
 				</Wrapper.Button>
 			</Wrapper.Container>
 		</Wrapper>

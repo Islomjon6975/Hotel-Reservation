@@ -1,22 +1,28 @@
 import { notification } from 'antd';
+import { useTranslation } from 'react-i18next';
 
-const notFound = {
-	message: 'Password or PhoneNumber is wrong!',
+const useErrorNotifier = () => {
+	const { t } = useTranslation();
+
+	const notFound = {
+		message: t('notification_api.notification_api_notFound'),
+	};
+
+	const notFillingError = {
+		message: t('notification_api.notification_api_notFillingError'),
+	};
+
+	const errorNotifier = ({ errorStatus = 409 }) => {
+		switch (errorStatus) {
+			case 409:
+				return notification.error({ ...notFound });
+			case 'notFillingError':
+				return notification.error({ ...notFillingError });
+			default:
+				return;
+		}
+	};
+	return { errorNotifier };
 };
 
-const notFillingError = {
-	message: 'Please fill all fields!',
-};
-
-const errorNotifier = ({ errorStatus }) => {
-	switch (errorStatus) {
-		case 409:
-			return notification.error({ ...notFound });
-		case 'notFillingError':
-			return notification.error({ ...notFillingError });
-		default:
-			return;
-	}
-};
-
-export { errorNotifier };
+export { useErrorNotifier };
