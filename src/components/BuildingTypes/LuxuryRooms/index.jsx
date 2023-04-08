@@ -14,19 +14,19 @@ const LuxuryRooms = () => {
 	return (
 		<Wrapper>
 			<CenteredWrapper>
-				<Title onClick={() => navigate('/building-control')}>
+				<Title onClick={() => navigate(-1)}>
 					<Arrow /> {t('building_control_page.building_control_luxury_rooms')}
 				</Title>
 				<CardWrapper>
 					<Card
 						title={`3 ${t('building_control_page.building_control_building')}`}
 						image={icon1}
-						onClick={() => navigate('building-control/map/luxury-rooms/3')}
+						onClick={() => navigate('/building-control/map/luxury-rooms/3')}
 					/>
 					<Card
 						title={`5 ${t('building_control_page.building_control_building')}`}
 						image={icon2}
-						onClick={() => navigate('building-control/map/luxury-rooms/5')}
+						onClick={() => navigate('/building-control/map/luxury-rooms/5')}
 					/>
 				</CardWrapper>
 			</CenteredWrapper>

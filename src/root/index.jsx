@@ -1,20 +1,16 @@
 import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { RequireAuth } from 'react-auth-kit';
-import Home from '../components/Home';
 import Login from '../components/Login';
 import Navbar from '../components/Navbar';
-import BuildingTypes from '../components/BuildingTypes';
-import OrdinaryRooms from '../components/BuildingTypes/OrdinaryRooms';
-import LuxuryRooms from '../components/BuildingTypes/LuxuryRooms';
-import Cottages from '../components/BuildingTypes/Cottages';
 import { en } from '../utils/locales/en/translation';
 import { ru } from '../utils/locales/ru/translation';
 import { uzLotin } from '../utils/locales/uzLotin/translation';
 import { uzKrill } from '../utils/locales/uzKrill/translation';
 import { useSelector } from 'react-redux';
+import { paths } from '../utils/paths';
 
 const Root = () => {
 	const { lang } = useSelector(state => state.locale);
@@ -58,13 +54,20 @@ const Root = () => {
 						<Navbar />
 					</RequireAuth>
 				}>
-				<Route index element={<Home />} />
-				<Route path='/building-control' element={<BuildingTypes />} />
-				<Route path='building-control/ordinary-rooms' element={<OrdinaryRooms />} />
-				<Route path='building-control/luxury-rooms' element={<LuxuryRooms />} />
-				<Route path='building-control/map/cottage' element={<Cottages />} />
+				{paths.map(({ id, Component, path, hasChild, children }) => {
+					return !hasChild ? (
+						<Route key={id} path={path} element={<Component />} />
+					) : (
+						<Route key={id} path={path} element={<Component />}>
+							{children.map(({ id, Component: ChildComponent, path, hasChild, children }) => (
+								<Route key={id} path={path} element={<ChildComponent />} />
+							))}
+						</Route>
+					);
+				})}
 			</Route>
 			<Route path='/login' element={<Login />} />
+			<Route path='*' element={<Navigate to='/' />} />
 		</Routes>
 	);
 };

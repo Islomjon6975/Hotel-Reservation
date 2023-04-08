@@ -20,10 +20,10 @@ const Home = () => {
 				<Title>{t('home_page.home_title')}:</Title>
 				<CardWrapper>
 					<Card title={t('home_page.home_all_users_section')} image={icon1} onClick={() => navigate('/all-users')} />
-					<Card title={t('home_page.home_half_users_section')} image={icon2} onClick={() => navigate('/middle-users')} />
+					<Card title={t('home_page.home_half_users_section')} image={icon2} onClick={() => navigate('/half-time')} />
 				</CardWrapper>
 				<CardWrapper>
-					<Card title={t('home_page.home_up_users_section')} image={icon3} onClick={() => navigate('/end-users')} />
+					<Card title={t('home_page.home_up_users_section')} image={icon3} onClick={() => navigate('/end-time')} />
 					<Card title={t('home_page.home_available_places')} image={icon4} onClick={() => navigate('/building-control')} />
 				</CardWrapper>
 				<Title>{t('home_page.home_report_title')}:</Title>

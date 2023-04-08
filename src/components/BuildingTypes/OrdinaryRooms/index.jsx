@@ -15,7 +15,7 @@ const OrdinaryRooms = () => {
 	return (
 		<Wrapper>
 			<CenteredWrapper>
-				<Title onClick={() => navigate('/building-control')}>
+				<Title onClick={() => navigate(-1)}>
 					<Arrow /> {t('building_control_page.building_control_ordinary_rooms')}
 				</Title>
 				<CardWrapper>
