@@ -7,8 +7,8 @@ export const uzKrill = {
 		home_locale_modal_uzLotin: "O'zbek",
 		home_title: 'Бўлимлар',
 		home_all_users_section: 'Барча фойдаланувчилар',
-		home_half_users_section: 'Время вышло',
-		home_up_users_section: 'Ярим вақт',
+		home_half_users_section: 'Ярим вақт',
+		home_up_users_section: 'Муддат тугаш.',
 		home_available_places: 'Бўш жойлар',
 		home_report_title: 'Ҳисоботлар',
 		home_report: 'Ҳисобот',
@@ -16,7 +16,7 @@ export const uzKrill = {
 	dropdown: {
 		navbar_dropdown_setting: 'Созламалар',
 		navbar_dropdown_language: 'Тилни Ўзгартириш',
-		navbar_dropdown_logout: 'Чиқиш',
+		navbar_dropdown_logout: 'Тарк этиш',
 	},
 	modal: {
 		modal_cancel: 'Бекор қилиш',
@@ -24,7 +24,7 @@ export const uzKrill = {
 		modal_change: 'Ўзгартириш',
 		modal_save: 'Сақлаш',
 		modal_edit: 'Таҳрирлаш',
-		modal_logout: 'Чиқиш',
+		modal_logout: 'Тарк этиш',
 		modal_logout_text: 'Сиз ҳақиқатан ҳам кетишни хоҳлайсизми?',
 		modal_add: 'Қўшиш',
 		modal_delete: 'Ўчириш',
@@ -53,5 +53,21 @@ export const uzKrill = {
 	notification_api: {
 		notification_api_notFound: 'Нотўғри парол ёки telefon рақами!',
 		notification_api_notFillingError: 'Илтимос, барча майдонларни тўлдиринг!',
+	},
+
+	users_table: {
+		users_table_full_name: 'Тўлиқ Исм',
+		users_table_phone_number: 'Telefon Рақами',
+		users_table_arrived_date: 'Келган Сана',
+		users_table_end_date: 'Тугаш Санаси',
+		users_table_left_day: 'Колган Кун',
+		users_table_total_pay: 'Жами тўлов',
+		users_table_pay_by_cash: 'Нақд Тўлаш',
+		users_table_pay_by_card: 'Карта Орқали Тўлаш',
+		users_table_pay_difference: 'Тўлов Фарқи',
+		users_table_pay_building: 'Бино',
+		users_table_room: 'Хона',
+		users_table_action: 'Ҳаракат',
+		users_table_go_to: 'Ўтиш',
 	},
 };

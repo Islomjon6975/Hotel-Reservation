@@ -34,6 +34,7 @@ export const en = {
 		modal_surname: 'Surname',
 		modal_version: 'version',
 	},
+
 	building_control_page: {
 		building_control_page_title: 'Building types',
 		building_control_ordinary_rooms: 'Ordinary Rooms',
@@ -52,5 +53,21 @@ export const en = {
 	notification_api: {
 		notification_api_notFound: 'Password or PhoneNumber is wrong!',
 		notification_api_notFillingError: 'Please fill all fields!',
+	},
+
+	users_table: {
+		users_table_full_name: 'Full Name',
+		users_table_phone_number: 'Phone Number',
+		users_table_arrived_date: 'Arrived Date',
+		users_table_end_date: 'End Date',
+		users_table_left_day: 'Left Day',
+		users_table_total_pay: 'Total Pay',
+		users_table_pay_by_cash: 'Pay By Cash',
+		users_table_pay_by_card: 'Pay By Card',
+		users_table_pay_difference: 'Pay Difference',
+		users_table_pay_building: 'Building',
+		users_table_room: 'Room',
+		users_table_action: 'Action',
+		users_table_go_to: 'Go to',
 	},
 };

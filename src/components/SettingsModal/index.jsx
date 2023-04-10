@@ -30,9 +30,9 @@ const SettingsModal = () => {
 			open={settingModalVisibility}
 			onOk={handleOk}
 			okText={t('modal.modal_save')}
-			okButtonProps={{ disabled: true }}
 			cancelText={t('modal.modal_cancel')}
 			confirmLoading={confirmLoading}
+			okButtonProps={{ disabled: true }}
 			onCancel={handleCancel}>
 			<CenteredWrapper>
 				<ModalContainer.Wrapper>

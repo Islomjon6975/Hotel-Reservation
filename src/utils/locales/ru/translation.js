@@ -53,4 +53,20 @@ export const ru = {
 		notification_api_notFound: 'Неверный пароль или номер телефона!',
 		notification_api_notFillingError: 'Пожалуйста заполните все поля!',
 	},
+
+	users_table: {
+		users_table_full_name: 'Полное имя',
+		users_table_phone_number: 'Номер телефона',
+		users_table_arrived_date: 'Дата прибытия',
+		users_table_end_date: 'Дата окончания',
+		users_table_left_day: 'Остаток дня',
+		users_table_total_pay: 'Общая оплата',
+		users_table_pay_by_cash: 'Оплата наличными',
+		users_table_pay_by_card: 'Оплатить картой',
+		users_table_pay_difference: 'Разница в оплате',
+		users_table_pay_building: 'Здание',
+		users_table_room: 'Комната',
+		users_table_action: 'Действие',
+		users_table_go_to: 'Перейти к',
+	},
 };

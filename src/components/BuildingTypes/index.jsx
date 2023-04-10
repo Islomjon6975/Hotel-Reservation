@@ -1,12 +1,13 @@
 import React from 'react';
 import { Wrapper } from './style';
-import { Arrow, CardWrapper, CenteredWrapper, Title } from '../../Generic/Styles';
+import { CardWrapper, CenteredWrapper } from '../../Generic/Styles';
 import Card from '../../Generic/Card';
 import { useNavigate, Outlet, useOutlet } from 'react-router-dom';
 import icon1 from '../../assets/icons/ordinary_room.svg';
 import icon2 from '../../assets/icons/luxury_room.svg';
 import icon3 from '../../assets/icons/mansion.svg';
 import { useTranslation } from 'react-i18next';
+import ArrowBack from '../../Generic/ArrowBack';
 
 const BuildingTypes = () => {
 	const { t } = useTranslation();
@@ -18,9 +19,7 @@ const BuildingTypes = () => {
 			<CenteredWrapper>
 				{!outlet ? (
 					<>
-						<Title onClick={() => navigate('/')}>
-							<Arrow /> {t('building_control_page.building_control_page_title')}
-						</Title>
+						<ArrowBack translation={'building_control_page.building_control_page_title'} />
 						<CardWrapper>
 							<Card
 								title={t('building_control_page.building_control_ordinary_rooms')}

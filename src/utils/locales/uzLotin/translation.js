@@ -54,4 +54,20 @@ export const uzLotin = {
 		notification_api_notFound: "Parol yoki telefon raqami noto'g'ri!",
 		notification_api_notFillingError: 'Iltimos, barcha maydonlarni toʻldiring!',
 	},
+
+	users_table: {
+		users_table_full_name: "To'liq ism",
+		users_table_phone_number: 'Telefon raqami',
+		users_table_arrived_date: 'Kelgan sana',
+		users_table_end_date: 'Tugash sanasi',
+		users_table_left_day: 'Qolgan kun',
+		users_table_total_pay: "Jami to'lov",
+		users_table_pay_by_cash: "Naqd to'lov",
+		users_table_pay_by_card: "Karta orqali to'lav",
+		users_table_pay_difference: "To'lov farqi",
+		users_table_pay_building: 'Bino',
+		users_table_room: 'Xona',
+		users_table_action: 'Harakat',
+		users_table_go_to: "O'tish",
+	},
 };

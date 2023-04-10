@@ -36,7 +36,8 @@ const LanguageModal = () => {
 			okText={t('modal.modal_change')}
 			cancelText={t('modal.modal_cancel')}
 			confirmLoading={confirmLoading}
-			onCancel={() => dispatch(setLangModalVisibility())}>
+			onCancel={() => dispatch(setLangModalVisibility())}
+			cancelButtonProps={{ disabled: confirmLoading ? true : false }}>
 			<CenteredWrapper>
 				<Segmented
 					size={mediaQuery ? 'small' : 'large'}

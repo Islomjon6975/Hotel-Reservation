@@ -5,8 +5,11 @@ import { ConfigProvider } from 'antd';
 import ru_RU from 'antd/locale/ru_RU';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from 'react-auth-kit';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const Wrapper = ({ children }) => {
+	const queryClient = new QueryClient();
+
 	return (
 		<AuthProvider
 			authType={'cookie'}
@@ -15,7 +18,9 @@ const Wrapper = ({ children }) => {
 			cookieSecure={window.location.protocol === 'https:'}>
 			<BrowserRouter>
 				<Provider store={store}>
-					<ConfigProvider locale={ru_RU}>{children}</ConfigProvider>
+					<QueryClientProvider client={queryClient}>
+						<ConfigProvider locale={ru_RU}>{children}</ConfigProvider>
+					</QueryClientProvider>
 				</Provider>
 			</BrowserRouter>
 		</AuthProvider>

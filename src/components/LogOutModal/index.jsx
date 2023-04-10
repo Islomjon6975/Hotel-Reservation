@@ -34,6 +34,7 @@ const LogOutModal = () => {
 			cancelText={t('modal.modal_cancel')}
 			confirmLoading={confirmLoading}
 			onCancel={handleCancel}
+			cancelButtonProps={{ disabled: confirmLoading ? true : false }}
 			className='logout'>
 			<p>{t('modal.modal_logout_text')}</p>
 		</ModalContainer>

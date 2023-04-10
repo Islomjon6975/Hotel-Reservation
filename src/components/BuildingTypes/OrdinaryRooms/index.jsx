@@ -1,12 +1,13 @@
 import React from 'react';
 import { Wrapper } from './style';
-import { Arrow, CardWrapper, CenteredWrapper, Title } from '../../../Generic/Styles';
+import { CardWrapper, CenteredWrapper } from '../../../Generic/Styles';
 import Card from '../../../Generic/Card';
 import { useNavigate } from 'react-router-dom';
 import icon1 from '../../../assets/icons/building.svg';
 import icon2 from '../../../assets/icons/building.svg';
 import icon3 from '../../../assets/icons/building.svg';
 import { useTranslation } from 'react-i18next';
+import ArrowBack from '../../../Generic/ArrowBack';
 
 const OrdinaryRooms = () => {
 	const { t } = useTranslation();
@@ -15,9 +16,8 @@ const OrdinaryRooms = () => {
 	return (
 		<Wrapper>
 			<CenteredWrapper>
-				<Title onClick={() => navigate(-1)}>
-					<Arrow /> {t('building_control_page.building_control_ordinary_rooms')}
-				</Title>
+				<ArrowBack translation={'building_control_page.building_control_ordinary_rooms'} />
+
 				<CardWrapper>
 					<Card
 						title={`2 ${t('building_control_page.building_control_building')}`}
