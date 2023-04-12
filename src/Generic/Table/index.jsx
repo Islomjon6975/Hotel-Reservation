@@ -4,6 +4,7 @@ import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
 import { UsersTable } from './style';
 import { useTranslation } from 'react-i18next';
+import dayjs from 'dayjs';
 
 const Table = ({ data }) => {
 	const { t } = useTranslation();
@@ -60,6 +61,18 @@ const Table = ({ data }) => {
 				text
 			),
 	});
+
+	console.log(data);
+	const changed = data.map(
+		value =>
+			value && {
+				...value,
+				arrivalDate: `${dayjs(value.arrivalDate).$D}.${dayjs(value.arrivalDate).$M + 1}.${dayjs(value.arrivalDate).$y}`,
+				endDate: `${dayjs(value.endDate).$D}.${dayjs(value.endDate).$M + 1}.${dayjs(value.endDate).$y}`,
+				leftDay: 10,
+			}
+	);
+	console.log(changed);
 
 	const columns = [
 		{
@@ -127,7 +140,7 @@ const Table = ({ data }) => {
 		},
 	];
 
-	return <UsersTable columns={columns} dataSource={data} />;
+	return <UsersTable columns={columns} dataSource={changed} />;
 };
 
 export default Table;

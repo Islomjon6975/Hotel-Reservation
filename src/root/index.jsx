@@ -59,15 +59,23 @@ const Root = () => {
 						<Route key={id} path={path} element={<Component />} />
 					) : (
 						<Route key={id} path={path} element={<Component />}>
-							{children.map(({ id, Component: ChildComponent, path, hasChild, children }) => (
-								<Route key={id} path={path} element={<ChildComponent />} />
-							))}
+							{children.map(({ id, Component, path, hasChild, children }) => {
+								return !hasChild ? (
+									<Route key={id} path={path} element={<Component />} />
+								) : (
+									<Route Route key={id} path={path} element={<Component />}>
+										{children.map(({ id, Component, path, hasChild, children }) => (
+											<Route key={id} path={path} element={<Component />} />
+										))}
+									</Route>
+								);
+							})}
 						</Route>
 					);
 				})}
 			</Route>
 			<Route path='/login' element={<Login />} />
-			<Route path='*' element={<Navigate to='/' />} />
+			<Route path='*' element={<h1>Not found</h1>} />
 		</Routes>
 	);
 };

@@ -6,6 +6,7 @@ import ru_RU from 'antd/locale/ru_RU';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from 'react-auth-kit';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const Wrapper = ({ children }) => {
 	const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ const Wrapper = ({ children }) => {
 			<BrowserRouter>
 				<Provider store={store}>
 					<QueryClientProvider client={queryClient}>
+						<ReactQueryDevtools initialIsOpen={false} />
 						<ConfigProvider locale={ru_RU}>{children}</ConfigProvider>
 					</QueryClientProvider>
 				</Provider>
