@@ -7,6 +7,7 @@ import SettingsModal from '../SettingsModal';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setLangModalVisibility, setLogoutModalVisibility, setSettingModalVisibility } from '../../redux/modalSlice';
+import Parameters from '../Reports/Parameters';
 
 const Navbar = () => {
 	const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Navbar = () => {
 			<SettingsModal />
 			<LogOutModal />
 			<LanguageModal />
+			<Parameters />
 			<Wrapper>
 				<Wrapper.Title onClick={() => navigate('/')}>Nihol</Wrapper.Title>
 				<Dropdown

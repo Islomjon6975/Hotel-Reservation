@@ -8,9 +8,9 @@ import EndTime from '../components/EndTime';
 import HalfTime from '../components/HalfTime';
 import Reports from '../components/Reports';
 import SecondBuilding from '../components/BuildingTypes/OrdinaryRooms/SecondBuilding';
-import ThirdBuilding from '../components/BuildingTypes/OrdinaryRooms/ThirdBuilding';
+import ThirdBuilding from '../components/BuildingTypes/LuxuryRooms/ThirdBuilding';
 import FourthBuilding from '../components/BuildingTypes/OrdinaryRooms/FourthBuilding';
-import FifthBuilding from '../components/BuildingTypes/OrdinaryRooms/FifthBuilding';
+import FifthBuilding from '../components/BuildingTypes/LuxuryRooms/FifthBuilding';
 import SixBuilding from '../components/BuildingTypes/OrdinaryRooms/SixthBuilding';
 const Home = lazy(() => import('../components/Home'));
 

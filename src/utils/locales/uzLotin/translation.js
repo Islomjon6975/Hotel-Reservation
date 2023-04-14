@@ -70,4 +70,25 @@ export const uzLotin = {
 		users_table_action: 'Harakat',
 		users_table_go_to: "O'tish",
 	},
+
+	empty_places: {
+		room: 'Xona',
+		floor: 'Qavat',
+	},
+
+	reports_page: {
+		date_range: "Sana oralig'i",
+		date_range_fill_all_fields: 'Iltimos, diapazon sanasini tanlang!',
+		parameters: 'Parameterlar',
+		parameters_modal_title: 'Hisobot opsiyalari',
+		parameters_cancel_all: 'Barchasini bekor qilish',
+		parameters_information_about_amount: "Miqdori haqida ma'lumot",
+		parameters_information_about_date: "Sana haqida ma'lumot",
+		select_parameter: 'Parameter tanlash',
+		download: 'Tortib olish',
+		statistics: 'Statistika',
+		statistics_number_of_people: 'Umumiy odamlar soni',
+		statistics_number_of_books: 'Umumiy bronlar soni',
+		statistics_number_of_empty_places: "Umumiy bo'sh joylar soni",
+	},
 };

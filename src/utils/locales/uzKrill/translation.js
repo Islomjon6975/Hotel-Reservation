@@ -70,4 +70,25 @@ export const uzKrill = {
 		users_table_action: 'Ҳаракат',
 		users_table_go_to: 'Ўтиш',
 	},
+
+	empty_places: {
+		room: 'Хона',
+		floor: 'Кават',
+	},
+
+	reports_page: {
+		date_range: 'Сана оралиғи',
+		date_range_fill_all_fields: 'Илтимос, сана оралиғини танланг!',
+		parameters: 'Параметерлар',
+		parameters_modal_title: 'Ҳисобот опсиялари',
+		parameters_cancel_all: 'Барчасини бекор қилиш',
+		parameters_information_about_amount: 'Миқдори ҳақида маълумот',
+		parameters_information_about_date: 'Сана ҳақида маълумот',
+		select_parameter: 'Параметер танлаш ',
+		download: 'Тортиб олиш',
+		statistics: 'Статистика',
+		statistics_number_of_people: 'Умумий одамлар сони',
+		statistics_number_of_books: 'Умумий бронлар сони',
+		statistics_number_of_empty_places: 'Умумий бўш жойлар сони',
+	},
 };

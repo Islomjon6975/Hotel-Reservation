@@ -70,4 +70,25 @@ export const en = {
 		users_table_action: 'Action',
 		users_table_go_to: 'Go to',
 	},
+
+	empty_places: {
+		room: 'Room',
+		floor: 'Floor',
+	},
+
+	reports_page: {
+		date_range: 'Date range',
+		date_range_fill_all_fields: 'Please, select range date!',
+		parameters: 'Parameters',
+		parameters_modal_title: 'Report options',
+		parameters_cancel_all: 'Cancel all',
+		parameters_information_about_amount: 'Information about amount',
+		parameters_information_about_date: 'Information about date',
+		select_parameter: 'Select parameter',
+		download: 'Download',
+		statistics: 'Statistics',
+		statistics_number_of_people: 'Total number of people',
+		statistics_number_of_books: 'Total number of books',
+		statistics_number_of_empty_places: 'Total number of empty places',
+	},
 };

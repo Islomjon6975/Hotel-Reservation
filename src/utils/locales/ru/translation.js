@@ -69,4 +69,25 @@ export const ru = {
 		users_table_action: 'Действие',
 		users_table_go_to: 'Перейти к',
 	},
+
+	empty_places: {
+		room: 'Комната',
+		floor: 'Пол',
+	},
+
+	reports_page: {
+		date_range: 'Диапазон дат',
+		date_range_fill_all_fields: 'Пожалуйста, выберите диапазон дат!',
+		parameters: 'Параметры',
+		parameters_modal_title: 'Параметры отчета',
+		parameters_cancel_all: 'Отменить все',
+		parameters_information_about_amount: 'Информация о сумме',
+		parameters_information_about_date: 'Информация о дате',
+		select_parameter: 'Выбрать параметр ',
+		download: 'Скачать',
+		statistics: 'Статистика',
+		statistics_number_of_people: 'Общее количество людей',
+		statistics_number_of_books: 'Общее количество броны',
+		statistics_number_of_empty_places: 'Общее количество пустых мест',
+	},
 };
