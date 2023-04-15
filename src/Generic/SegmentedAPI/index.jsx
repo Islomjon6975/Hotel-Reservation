@@ -57,5 +57,20 @@ export const useSegmented = () => {
 		},
 	];
 
-	return { localeOptions };
+	const userOptions = () => [
+		{
+			label: <div>{'Observing' || t('home_page.home_locale_modal_uzLotin')}</div>,
+			value: 'Observing',
+		},
+		{
+			label: <div>{'Booked places' || t('home_page.home_locale_modal_uzLotin')}</div>,
+			value: 'Booked places',
+		},
+		{
+			label: <div>{'Edit' || t('home_page.home_locale_modal_uzLotin')}</div>,
+			value: 'Edit',
+		},
+	];
+
+	return { localeOptions, userOptions };
 };

@@ -7,6 +7,7 @@ const modalSlice = createSlice({
 		langModalVisibility: false,
 		logoutModalVisibility: false,
 		parameterModalVisibility: false,
+		userModalVisibility: false,
 	},
 	reducers: {
 		setSettingModalVisibility(state) {
@@ -22,9 +23,17 @@ const modalSlice = createSlice({
 		setParameterModalVisibility(state) {
 			state.parameterModalVisibility = !state.parameterModalVisibility;
 		},
+		setUserModalVisibility(state) {
+			state.userModalVisibility = !state.userModalVisibility;
+		},
 	},
 });
 
-export const { setSettingModalVisibility, setLangModalVisibility, setLogoutModalVisibility, setParameterModalVisibility } =
-	modalSlice.actions;
+export const {
+	setSettingModalVisibility,
+	setLangModalVisibility,
+	setLogoutModalVisibility,
+	setParameterModalVisibility,
+	setUserModalVisibility,
+} = modalSlice.actions;
 export default modalSlice.reducer;

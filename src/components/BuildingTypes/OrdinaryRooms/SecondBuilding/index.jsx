@@ -6,6 +6,7 @@ import { useAxios } from '../../../../hooks/useAxios';
 import IsLoading from '../../../../Generic/IsLoading';
 import Mapping from './Mapping';
 import { useTranslation } from 'react-i18next';
+import UserModal from '../../Constants/UserModal';
 
 const SecondBuilding = () => {
 	const { t } = useTranslation();
@@ -24,6 +25,7 @@ const SecondBuilding = () => {
 	return (
 		<CenteredWrapper>
 			<ArrowBack translation={`2 ${t('building_control_page.building_control_building')}`} />
+			<UserModal />
 			{isLoading ? <IsLoading /> : <Mapping />}
 		</CenteredWrapper>
 	);
