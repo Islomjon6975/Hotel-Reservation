@@ -7,8 +7,10 @@ import { useDispatch } from 'react-redux';
 import { setUserModalVisibility } from '../../../../../redux/modalSlice';
 import { setUserID } from '../../../../../redux/userSlice';
 import TooltipAPI from '../../../../../Generic/Tooltip';
+import { useTranslation } from 'react-i18next';
 
 const RoomComponent = ({ value: { userID } }) => {
+	const { t } = useTranslation();
 	const axios = useAxios();
 	const dispatch = useDispatch();
 
@@ -28,7 +30,7 @@ const RoomComponent = ({ value: { userID } }) => {
 	const day = Math.round(millisecondDiff / aDayInMillisecond);
 
 	return (
-		<TooltipAPI title='Busy room' color={'red'}>
+		<TooltipAPI title={t('tooltip.busy_room')} color={'red'}>
 			<Room color='red' onClick={() => !isLoading && dispatch(setUserModalVisibility())}>
 				{isLoading ? <LoadingOutlined /> : day}
 			</Room>

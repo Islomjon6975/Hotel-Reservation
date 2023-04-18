@@ -2,9 +2,12 @@ import React from 'react';
 import { Room } from '../../../../../Generic/Styles';
 import { Modal } from 'antd';
 import TooltipAPI from '../../../../../Generic/Tooltip';
+import { useTranslation } from 'react-i18next';
 const { confirm } = Modal;
 
 const EmptyRoom = () => {
+	const { t } = useTranslation();
+
 	const confirmModal = () => {
 		return confirm({
 			title: 'Empty place',
@@ -15,7 +18,7 @@ const EmptyRoom = () => {
 		});
 	};
 	return (
-		<TooltipAPI title='Empty room' color='green'>
+		<TooltipAPI title={t('tooltip.empty_room')} color='green'>
 			<Room color='green' onClick={confirmModal} />
 		</TooltipAPI>
 	);

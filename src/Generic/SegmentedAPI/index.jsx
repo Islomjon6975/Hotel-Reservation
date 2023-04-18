@@ -59,15 +59,15 @@ export const useSegmented = () => {
 
 	const userOptions = () => [
 		{
-			label: <div>{'Observing' || t('home_page.home_locale_modal_uzLotin')}</div>,
+			label: <div>{t('information_about_user.observing') || t('home_page.home_locale_modal_uzLotin')}</div>,
 			value: 'Observing',
 		},
 		{
-			label: <div>{'Booked places' || t('home_page.home_locale_modal_uzLotin')}</div>,
+			label: <div>{t('information_about_user.booked_user') || t('home_page.home_locale_modal_uzLotin')}</div>,
 			value: 'Booked places',
 		},
 		{
-			label: <div>{'Edit' || t('home_page.home_locale_modal_uzLotin')}</div>,
+			label: <div>{t('information_about_user.edit') || t('home_page.home_locale_modal_uzLotin')}</div>,
 			value: 'Edit',
 		},
 	];

@@ -34,7 +34,6 @@ export const uzKrill = {
 		modal_surname: 'Фамилияси',
 		modal_version: 'версия',
 	},
-
 	building_control_page: {
 		building_control_page_title: 'Қурилиш турлари',
 		building_control_ordinary_rooms: 'Оддий Хоналар',
@@ -42,19 +41,16 @@ export const uzKrill = {
 		building_control_cottages: 'Коттежлар',
 		building_control_building: 'Бино',
 	},
-
 	login_page: {
 		login_page_title: 'Яна бир бор салом!',
 		login_page_description: 'Биз ҳар куни кечагидан кўра яхшироқ хизмат кўрсатамиз',
 		login_page_password_placeholder: 'Паролингиз',
 		login_page_button: 'Кириш',
 	},
-
 	notification_api: {
 		notification_api_notFound: 'Нотўғри парол ёки telefon рақами!',
 		notification_api_notFillingError: 'Илтимос, барча майдонларни тўлдиринг!',
 	},
-
 	users_table: {
 		users_table_full_name: 'Тўлиқ Исм',
 		users_table_phone_number: 'Telefon Рақами',
@@ -70,12 +66,10 @@ export const uzKrill = {
 		users_table_action: 'Ҳаракат',
 		users_table_go_to: 'Ўтиш',
 	},
-
 	empty_places: {
 		room: 'Хона',
 		floor: 'Кават',
 	},
-
 	reports_page: {
 		date_range: 'Сана оралиғи',
 		date_range_fill_all_fields: 'Илтимос, сана оралиғини танланг!',
@@ -90,5 +84,78 @@ export const uzKrill = {
 		statistics_number_of_people: 'Умумий одамлар сони',
 		statistics_number_of_books: 'Умумий бронлар сони',
 		statistics_number_of_empty_places: 'Умумий бўш жойлар сони',
+	},
+	information_about_user: {
+		title: 'Мижоз ҳақида маълумот',
+		observing: 'Кузатув',
+		booked_user: 'Бронланган жойлар',
+		edit: 'Ўзгартириш',
+		observing_user: {
+			full_name: 'Тўлиқ исм',
+			birth_date: 'Туғулган сана',
+			password_number: 'Пасспорт рақам',
+			phone_number: 'Тел рақам',
+			address: 'Адрес',
+			came_date: 'Ташриф санаси',
+			end_date: 'Тугаш санаси',
+			remaining_days: 'Қолган кун',
+			daily_price: 'Кунлик нарх',
+			total_price: 'Жами тўлов',
+			voucher_status: 'Воучер холати',
+			pay_by_cash: 'Нақд тўлов',
+			pay_by_card: 'Карта орқали тўлов',
+			payment_difference: 'Тўлов фарқи',
+			building_number: 'Бино рақами',
+			room_number: 'Хона рақами',
+			delete_user: {
+				title: 'Ишонч ҳосил қилинг!',
+				content: 'Оʻчириш тасдиқлангач, бу амални ортга қайтариб боʻлмайди.',
+			},
+			move_user: {
+				title: 'Кўчириш',
+				select_room: 'Хона рақамини танланг',
+				room: 'Хона',
+				select_position: 'Жойлашувни танланг',
+				select_position_info: {
+					title: 'Ишонч ҳосил қилинг!',
+					content: 'Что вы хотите переместить пользователя?',
+				},
+			},
+		},
+		edit_user: {
+			full_name: 'Тўлиқ исм',
+			birth_date: 'Туғулган сана',
+			password_number: 'Пасспорт рақам',
+			phone_number: 'Тел рақам',
+			address: 'Адрес',
+			came_date: 'Ташриф санаси',
+			end_date: 'Тугаш санаси',
+			remaining_days: 'Қолган кун',
+			daily_price: 'Кунлик нарх',
+			total_price: 'Жами тўлов',
+			voucher_status: 'Воучер холати',
+			pay_by_cash: 'Нақд тўлов',
+			pay_by_card: 'Карта орқали тўлов',
+			payment_difference: 'Тўлов фарқи',
+			building_number: 'Бино рақами',
+			room_number: 'Хона рақами',
+			range_date: 'Сана оралиғ',
+
+			full_name_error: 'Илтимос, Тўлиқ Исмингизни Киритинг',
+			birth_date_error: 'Илтимос, туғилган санани танланг!',
+			password_number_error: 'Илтимос, паспорт рақамини киритинг!',
+			phone_number_error: 'Илтимос, telefon рақамини киритинг!',
+			address_error: 'Илтимос, манзилни киритинг!',
+			range_date_error: 'Илтимос, range дате-ни танланг!',
+			daily_price_error: 'Илтимос, кунлик нархни киритинг!',
+			pay_by_cash_error: 'Илтимос, тўловни нақд пул билан киритинг!',
+			pay_by_card_error: 'Илтимос, карта орқали тўловни киритинг!',
+		},
+	},
+
+	tooltip: {
+		empty_room: 'Бўш хона',
+		booked_room: 'Брон қилинган хона',
+		busy_room: 'Банд хона',
 	},
 };

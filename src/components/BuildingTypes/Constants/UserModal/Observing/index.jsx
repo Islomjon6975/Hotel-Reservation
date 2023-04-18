@@ -2,10 +2,14 @@ import { Button, List } from 'antd';
 import React from 'react';
 import { Btns, ObservingWrapper } from './style';
 import { useQueryClient } from 'react-query';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
+import { setUserModalVisibility } from '../../../../../redux/modalSlice';
+import { useTranslation } from 'react-i18next';
 const Observing = () => {
+	const { t } = useTranslation();
 	const { userID } = useSelector(state => state.user);
+	const dispatch = useDispatch();
 
 	const queryClient = useQueryClient();
 	const { data } = queryClient.getQueryData(`user/${userID}`);
@@ -29,73 +33,73 @@ const Observing = () => {
 
 	const userInfo = [
 		{
-			title: 'Full name',
+			title: t('information_about_user.observing_user.full_name'),
 			content: fullName,
 		},
 		{
-			title: 'Birth date',
+			title: t('information_about_user.observing_user.birth_date'),
 			content: `${dayjs(birthDate).$D}.${dayjs(birthDate).$M < 10 ? '0' + (dayjs(birthDate).$M + 1) : dayjs(birthDate).$M + 1}.${
 				dayjs(birthDate).$y
 			}`,
 		},
 		{
-			title: 'Passport number',
+			title: t('information_about_user.observing_user.password_number'),
 			content: passportID,
 		},
 		{
-			title: 'Phone Number',
+			title: t('information_about_user.observing_user.phone_number'),
 			content: phoneNumber,
 		},
 		{
-			title: 'Address',
+			title: t('information_about_user.observing_user.address'),
 			content: address,
 		},
 		{
-			title: 'Came date',
+			title: t('information_about_user.observing_user.came_date'),
 			content: `${dayjs(arrivalDate).$D}.${
 				dayjs(arrivalDate).$M < 10 ? '0' + (dayjs(arrivalDate).$M + 1) : dayjs(arrivalDate).$M + 1
 			}.${dayjs(arrivalDate).$y}`,
 		},
 		{
-			title: 'End Date',
+			title: t('information_about_user.observing_user.end_date'),
 			content: `${dayjs(endDate).$D}.${dayjs(endDate).$M < 10 ? '0' + (dayjs(endDate).$M + 1) : dayjs(endDate).$M + 1}.${
 				dayjs(endDate).$y
 			}`,
 		},
 		{
-			title: 'Remaining days',
+			title: t('information_about_user.observing_user.remaining_days'),
 			content: '12',
 		},
 		{
-			title: 'Daily price',
+			title: t('information_about_user.observing_user.daily_price'),
 			content: dayCost,
 		},
 		{
-			title: 'Total price',
+			title: t('information_about_user.observing_user.total_price'),
 			content: total,
 		},
 		{
-			title: 'Voucher status',
+			title: t('information_about_user.observing_user.voucher_status'),
 			content: hasVoucher ? 'With voucher' : 'Without voucher',
 		},
 		{
-			title: 'Pay by cash',
+			title: t('information_about_user.observing_user.pay_by_cash'),
 			content: paidByCash,
 		},
 		{
-			title: 'Pay by card',
+			title: t('information_about_user.observing_user.pay_by_card'),
 			content: paidByPlasticCard,
 		},
 		{
-			title: 'Payment difference',
+			title: t('information_about_user.observing_user.payment_difference'),
 			content: -total,
 		},
 		{
-			title: 'Building Number',
+			title: t('information_about_user.observing_user.building_number'),
 			content: buildingNumber,
 		},
 		{
-			title: 'Room number',
+			title: t('information_about_user.observing_user.room_number'),
 			content: roomNumber,
 		},
 	];
@@ -106,10 +110,10 @@ const Observing = () => {
 				size='small'
 				footer={
 					<Btns>
-						<Button>Cancel</Button>
-						<Button type='primary'>Move</Button>
+						<Button onClick={() => dispatch(setUserModalVisibility())}>{t('modal.modal_cancel')}</Button>
+						<Button type='primary'>{t('modal.modal_move')}</Button>
 						<Button type='primary' danger>
-							Delete
+							{t('modal.modal_delete')}
 						</Button>
 					</Btns>
 				}

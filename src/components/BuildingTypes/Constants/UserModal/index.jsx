@@ -1,4 +1,4 @@
-import { Button, Modal, Segmented, Space } from 'antd';
+import { Segmented } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserModalVisibility } from '../../../../redux/modalSlice';
 import { useSegmented } from '../../../../Generic/SegmentedAPI';
@@ -7,8 +7,10 @@ import BookedPlaces from './BookedPlaces';
 import Edit from './Edit';
 import { useState } from 'react';
 import { ModalWrapper } from './style';
+import { useTranslation } from 'react-i18next';
 
 const UserModal = () => {
+	const { t } = useTranslation();
 	const { userModalVisibility } = useSelector(state => state.modal);
 	const dispatch = useDispatch();
 	const { userOptions } = useSegmented();
@@ -18,7 +20,7 @@ const UserModal = () => {
 		<ModalWrapper
 			open={userModalVisibility}
 			onCancel={() => dispatch(setUserModalVisibility())}
-			title={'Information about user'}
+			title={t('information_about_user.title')}
 			footer={null}
 			okButtonProps={{ background: 'red' }}>
 			<Segmented block options={userOptions()} onChange={e => setUserOption(e)} defaultValue='Observing' />

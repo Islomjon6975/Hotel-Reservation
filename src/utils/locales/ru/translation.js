@@ -41,19 +41,16 @@ export const ru = {
 		building_control_cottages: 'Коттеджи',
 		building_control_building: 'Здание',
 	},
-
 	login_page: {
 		login_page_title: 'И снова здравствуйте!',
 		login_page_description: 'Мы обеспечиваем лучший сервис каждый день, чем вчера',
 		login_page_password_placeholder: 'Ваш пароль',
 		login_page_button: 'Входить',
 	},
-
 	notification_api: {
 		notification_api_notFound: 'Неверный пароль или номер телефона!',
 		notification_api_notFillingError: 'Пожалуйста заполните все поля!',
 	},
-
 	users_table: {
 		users_table_full_name: 'Полное имя',
 		users_table_phone_number: 'Номер телефона',
@@ -69,12 +66,10 @@ export const ru = {
 		users_table_action: 'Действие',
 		users_table_go_to: 'Перейти к',
 	},
-
 	empty_places: {
 		room: 'Комната',
 		floor: 'Пол',
 	},
-
 	reports_page: {
 		date_range: 'Диапазон дат',
 		date_range_fill_all_fields: 'Пожалуйста, выберите диапазон дат!',
@@ -89,5 +84,78 @@ export const ru = {
 		statistics_number_of_people: 'Общее количество людей',
 		statistics_number_of_books: 'Общее количество броны',
 		statistics_number_of_empty_places: 'Общее количество пустых мест',
+	},
+	information_about_user: {
+		title: 'Информация о пользователе',
+		observing: 'Наблюдение',
+		booked_user: 'Забронированный пользователь',
+		edit: 'Редактировать',
+		observing_user: {
+			full_name: 'Полное имя',
+			birth_date: 'Дата рождения',
+			password_number: 'Номер пароля',
+			phone_number: 'Номер телефона',
+			address: 'Адрес',
+			came_date: 'Пришла дата',
+			end_date: 'Дата окончания',
+			remaining_days: 'Оставшиеся дни',
+			daily_price: 'Ежедневная цена',
+			total_price: 'Итоговая цена',
+			voucher_status: 'Статус ваучера',
+			pay_by_cash: 'Оплата наличными',
+			pay_by_card: 'Оплатить картой',
+			payment_difference: 'Разница в оплате',
+			building_number: 'Номер зданияr',
+			room_number: 'Номер комнаты',
+			delete_user: {
+				title: 'Убеждаться',
+				content: 'Это действие нельзя отменить после удаления!',
+			},
+			move_user: {
+				title: 'Двигаться',
+				select_room: 'Выберите номер',
+				room: 'Комната',
+				select_position: 'Выберите позицию',
+				select_position_info: {
+					title: 'Убеждаться',
+					content: 'Что вы хотите переместить пользователя?',
+				},
+			},
+		},
+		edit_user: {
+			full_name: 'Полное имя',
+			birth_date: 'Дата рождения',
+			password_number: 'Номер пароля',
+			phone_number: 'Номер телефона',
+			address: 'Адрес',
+			came_date: 'Пришла дата',
+			end_date: 'Дата окончания',
+			remaining_days: 'Оставшиеся дни',
+			daily_price: 'Ежедневная цена',
+			total_price: 'Итоговая цена',
+			voucher_status: 'Статус ваучера',
+			pay_by_cash: 'Оплата наличными',
+			pay_by_card: 'Оплатить картой',
+			payment_difference: 'Разница в оплате',
+			building_number: 'Номер зданияr',
+			room_number: 'Номер комнаты',
+			range_date: 'Дата диапазона',
+
+			full_name_error: 'Пожалуйста, введите полное имя',
+			birth_date_error: 'Пожалуйста, выберите дату рождения!',
+			password_number_error: 'Пожалуйста, введите номер паспорта!',
+			phone_number_error: 'Пожалуйста, введите номер телефона!',
+			address_error: 'Пожалуйста, введите адрес!',
+			range_date_error: 'Пожалуйста, выберите диапазон дат!',
+			daily_price_error: 'Пожалуйста, введите цену за день!',
+			pay_by_cash_error: 'Пожалуйста, введите оплату наличными!',
+			pay_by_card_error: 'Пожалуйста, введите оплату картой!',
+		},
+	},
+
+	tooltip: {
+		empty_room: 'Пустая комната',
+		booked_room: 'Забронированный номер',
+		busy_room: 'Занятая комната',
 	},
 };

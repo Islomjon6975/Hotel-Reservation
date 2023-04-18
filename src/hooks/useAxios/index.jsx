@@ -7,9 +7,9 @@ export const useAxios = () => {
 		return await axios({
 			url: `${REACT_APP_BASE_URL}${url}`,
 			method,
-			data: {
+			data: JSON.stringify({
 				...body,
-			},
+			}),
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('token')}`,
 				'Content-Type': 'application/json',
