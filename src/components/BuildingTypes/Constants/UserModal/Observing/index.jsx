@@ -1,11 +1,15 @@
-import { Button, List } from 'antd';
+import { Button, List, Modal } from 'antd';
 import React from 'react';
 import { Btns, ObservingWrapper } from './style';
-import { useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
 import { setUserModalVisibility } from '../../../../../redux/modalSlice';
 import { useTranslation } from 'react-i18next';
+import { useAxios } from '../../../../../hooks/useAxios';
+
+const { confirm } = Modal;
+
 const Observing = () => {
 	const { t } = useTranslation();
 	const { userID } = useSelector(state => state.user);
@@ -13,8 +17,11 @@ const Observing = () => {
 
 	const queryClient = useQueryClient();
 	const { data } = queryClient.getQueryData(`user/${userID}`);
+	const axios = useAxios();
 
 	const {
+		_id,
+		clienteID,
 		fullName,
 		birthDate,
 		passportID,
@@ -104,6 +111,32 @@ const Observing = () => {
 		},
 	];
 
+	const { mutate } = useMutation(() =>
+		axios({
+			url: '/accomodation/2/delete-user',
+			method: 'DELETE',
+			body: data.data,
+		})
+	);
+	const confirmDeleteUserModal = () => {
+		return confirm({
+			title: t('information_about_user.observing_user.delete_user.title'),
+			content: t('information_about_user.observing_user.delete_user.content'),
+			okText: t('modal.modal_delete'),
+			cancelText: t('modal.modal_cancel'),
+
+			okButtonProps: { danger: true },
+			closable: true,
+			onOk() {
+				mutate('user', {
+					onSuccess: res => {
+						console.log(res, 'user delete');
+					},
+				});
+			},
+		});
+	};
+
 	return (
 		<ObservingWrapper>
 			<List
@@ -112,7 +145,7 @@ const Observing = () => {
 					<Btns>
 						<Button onClick={() => dispatch(setUserModalVisibility())}>{t('modal.modal_cancel')}</Button>
 						<Button type='primary'>{t('modal.modal_move')}</Button>
-						<Button type='primary' danger>
+						<Button type='primary' danger onClick={confirmDeleteUserModal}>
 							{t('modal.modal_delete')}
 						</Button>
 					</Btns>
@@ -123,6 +156,7 @@ const Observing = () => {
 					<List.Item style={{ display: 'flex', padding: '0px', marginTop: 17 }}>
 						<ObservingWrapper.Column>{item.title}:</ObservingWrapper.Column>
 						<ObservingWrapper.Column>{item.content}</ObservingWrapper.Column>
+						{/* <DeleteUserModal /> */}
 					</List.Item>
 				)}
 			/>

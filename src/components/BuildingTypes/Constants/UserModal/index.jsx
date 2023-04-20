@@ -21,8 +21,7 @@ const UserModal = () => {
 			open={userModalVisibility}
 			onCancel={() => dispatch(setUserModalVisibility())}
 			title={t('information_about_user.title')}
-			footer={null}
-			okButtonProps={{ background: 'red' }}>
+			footer={null}>
 			<Segmented block options={userOptions()} onChange={e => setUserOption(e)} defaultValue='Observing' />
 			{userOption === 'Observing' ? <Observing /> : userOption === 'Booked places' ? <BookedPlaces /> : <Edit />}
 		</ModalWrapper>

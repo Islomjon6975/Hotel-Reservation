@@ -26,6 +26,7 @@ const SecondBuilding = () => {
 		<CenteredWrapper>
 			<ArrowBack translation={`2 ${t('building_control_page.building_control_building')}`} />
 			<UserModal />
+
 			{isLoading ? <IsLoading /> : <Mapping />}
 		</CenteredWrapper>
 	);

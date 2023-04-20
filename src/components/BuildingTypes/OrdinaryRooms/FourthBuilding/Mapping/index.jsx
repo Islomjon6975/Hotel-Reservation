@@ -4,33 +4,19 @@ import {
 	ClienteWrapper,
 	MappingCard,
 	MappingCardWrapper,
-	Room,
 	RoomTitle,
 	RoomWrapper,
 } from '../../../../../Generic/Styles';
-import { useQuery, useQueryClient } from 'react-query';
-import { useAxios } from '../../../../../hooks/useAxios';
-import { useState } from 'react';
+import { useQueryClient } from 'react-query';
 import { useTranslation } from 'react-i18next';
+import EmptyRoom from '../EmptyRoom';
+import RoomComponent from '../Room';
+import BookedRoom from '../BookedRoom';
 
 const Mapping = () => {
 	const { t } = useTranslation();
-	const axios = useAxios();
 	const queryClient = useQueryClient();
 	const { data } = queryClient.getQueryData('accomodation/4');
-	const [client_id, setClient_id] = useState(null);
-
-	const getUser = useQuery(
-		['getUser', client_id],
-		() => {
-			return axios({ url: `/accomodation/4/user?_id=${client_id}` });
-		},
-		{ refetchOnWindowFocus: false }
-	);
-
-	const roomClick = userID => {
-		userID && setClient_id(userID);
-	};
 
 	return (
 		<CenteredWrapper>
@@ -42,11 +28,15 @@ const Mapping = () => {
 								{room?.roomNumber} {t('empty_places.room')}
 							</RoomTitle>
 							<ClienteWrapper>
-								{room?.cliente?.map(client => (
-									<Room color='green' key={client?.clienteID} onClick={() => roomClick(client?.userID)}>
-										{room.bookedCliente[0].bookedClienteList.length > 0 && 1}
-									</Room>
-								))}
+								{room?.cliente?.map(value =>
+									!value.isBooked && !value.userID ? (
+										<EmptyRoom key={value.clienteID} />
+									) : value.userID ? (
+										<RoomComponent key={value.clienteID} value={value} />
+									) : (
+										<BookedRoom key={value.clienteID} />
+									)
+								)}
 							</ClienteWrapper>
 						</RoomWrapper>
 					))}
