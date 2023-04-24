@@ -123,6 +123,7 @@ export const uzLotin = {
 				select_room: 'Xona raqamini tanlang',
 				room: 'Xona',
 				select_position: 'Joylashuvni tanlang',
+				select_floor: 'Qavatni tanlang',
 				select_position_info: {
 					title: 'Ishonch hosil qiling',
 					content: "Foydalanuvchini nimani ko'chirmoqchisiz?",

@@ -4,6 +4,7 @@ import { Avatar } from 'antd';
 export const useSegmented = () => {
 	const { t } = useTranslation();
 
+	// ====================== LOCALE OPTIONS ======================
 	const localeOptions = () => [
 		{
 			label: (
@@ -57,6 +58,7 @@ export const useSegmented = () => {
 		},
 	];
 
+	// ====================== USER OPTIONS ======================
 	const userOptions = () => [
 		{
 			label: <div>{t('information_about_user.observing') || t('home_page.home_locale_modal_uzLotin')}</div>,
@@ -72,5 +74,8 @@ export const useSegmented = () => {
 		},
 	];
 
-	return { localeOptions, userOptions };
+	// ====================== MOVE USER OPTION ======================
+	const moveUserOptions = () => [2, 3, 4, 5, 6];
+
+	return { localeOptions, userOptions, moveUserOptions };
 };

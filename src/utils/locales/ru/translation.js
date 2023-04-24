@@ -116,6 +116,8 @@ export const ru = {
 				select_room: 'Выберите номер',
 				room: 'Комната',
 				select_position: 'Выберите позицию',
+
+				select_floor: 'Выберите этаж',
 				select_position_info: {
 					title: 'Убеждаться',
 					content: 'Что вы хотите переместить пользователя?',

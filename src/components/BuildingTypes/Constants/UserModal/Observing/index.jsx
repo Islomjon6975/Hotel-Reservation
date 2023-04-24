@@ -4,7 +4,7 @@ import { Btns, ObservingWrapper } from './style';
 import { useMutation, useQueryClient } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import dayjs from 'dayjs';
-import { setUserModalVisibility } from '../../../../../redux/modalSlice';
+import { setMoveUserModalVisibility, setUserModalVisibility } from '../../../../../redux/modalSlice';
 import { useTranslation } from 'react-i18next';
 import { useAxios } from '../../../../../hooks/useAxios';
 
@@ -36,7 +36,7 @@ const Observing = () => {
 		paidByPlasticCard,
 		buildingNumber,
 		roomNumber,
-	} = data.data;
+	} = data?.data;
 
 	const userInfo = [
 		{
@@ -113,9 +113,9 @@ const Observing = () => {
 
 	const { mutate } = useMutation(() =>
 		axios({
-			url: '/accomodation/2/delete-user',
+			url: `/accomodation/${buildingNumber.slice(-1)}/delete-user`,
 			method: 'DELETE',
-			body: data.data,
+			body: data?.data,
 		})
 	);
 	const confirmDeleteUserModal = () => {
@@ -144,7 +144,9 @@ const Observing = () => {
 				footer={
 					<Btns>
 						<Button onClick={() => dispatch(setUserModalVisibility())}>{t('modal.modal_cancel')}</Button>
-						<Button type='primary'>{t('modal.modal_move')}</Button>
+						<Button type='primary' onClick={() => dispatch(setMoveUserModalVisibility())}>
+							{t('modal.modal_move')}
+						</Button>
 						<Button type='primary' danger onClick={confirmDeleteUserModal}>
 							{t('modal.modal_delete')}
 						</Button>
@@ -156,7 +158,6 @@ const Observing = () => {
 					<List.Item style={{ display: 'flex', padding: '0px', marginTop: 17 }}>
 						<ObservingWrapper.Column>{item.title}:</ObservingWrapper.Column>
 						<ObservingWrapper.Column>{item.content}</ObservingWrapper.Column>
-						{/* <DeleteUserModal /> */}
 					</List.Item>
 				)}
 			/>

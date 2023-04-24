@@ -116,6 +116,7 @@ export const uzKrill = {
 				select_room: 'Хона рақамини танланг',
 				room: 'Хона',
 				select_position: 'Жойлашувни танланг',
+				select_floor: 'Қаватни танланг',
 				select_position_info: {
 					title: 'Ишонч ҳосил қилинг!',
 					content: 'Что вы хотите переместить пользователя?',

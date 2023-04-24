@@ -194,3 +194,12 @@ export const FloorTitle = styled.div`
 	line-height: 50px;
 	color: rgb(0, 0, 0);
 `;
+
+// ==================== MODAL BUTTONS WRAPPER ====================
+export const ModalButtonsWrapper = styled.div`
+	width: 100%;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	justify-content: flex-end;
+`;

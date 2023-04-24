@@ -1,19 +1,25 @@
-import { Button, DatePicker, Form, Input, InputNumber } from 'antd';
 import dayjs from 'dayjs';
-import { useMutation, useQueryClient } from 'react-query';
-import { useDispatch, useSelector } from 'react-redux';
 import { Btns } from './style';
-import { setUserModalVisibility } from '../../../../../redux/modalSlice';
-import { useAxios } from '../../../../../hooks/useAxios';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { useAxios } from '../../../../../hooks/useAxios';
+import { useMutation, useQueryClient } from 'react-query';
+import { useMessageAPI } from '../../../../../Generic/Message';
+import { Button, DatePicker, Form, Input, InputNumber } from 'antd';
+import { setUserModalVisibility } from '../../../../../redux/modalSlice';
+
 const { RangePicker } = DatePicker;
+
 const Edit = () => {
-	const { t } = useTranslation();
-	const { userID } = useSelector(state => state.user);
-	const dispatch = useDispatch();
-	const queryClient = useQueryClient();
-	const { data } = queryClient.getQueryData(`user/${userID}`);
 	const axios = useAxios();
+	const dispatch = useDispatch();
+	const { t } = useTranslation();
+	const queryClient = useQueryClient();
+	const { userID } = useSelector(state => state.user);
+	const { data } = queryClient.getQueryData(`user/${userID}`);
+	const { openNotificationWithIcon, contextHolder } = useMessageAPI();
+
+	// ===========================  USER INFO =================================
 	const {
 		_id,
 		fullName,
@@ -25,12 +31,16 @@ const Edit = () => {
 		endDate,
 		dayCost,
 		paidByCash,
+		buildingNumber,
 		paidByPlasticCard,
+		roomNumber,
+		clienteID,
 	} = data.data;
 
+	// ===========================  USER UPDATE =================================
 	const { mutate } = useMutation(e =>
 		axios({
-			url: `/accomodation/2/update-user`,
+			url: `/accomodation/${buildingNumber.slice(-1)}/update-user`,
 			method: 'POST',
 			body: {
 				_id,
@@ -44,23 +54,27 @@ const Edit = () => {
 				dayCost,
 				paidByCash,
 				paidByPlasticCard,
+				roomNumber,
+				clienteID,
 				e,
 			},
 		})
 	);
 
+	// ===========================  FORM SUBMIT =================================
 	const formSubmit = e => {
 		mutate(e, {
 			onSuccess: res => {
 				console.log(res, 'res');
+				openNotificationWithIcon('success');
 			},
 		});
 	};
 
-	console.log(data.data, 'data');
-
+	// ===========================  RENDER =================================
 	return (
 		<>
+			{contextHolder}
 			<Form
 				labelCol={{}}
 				wrapperCol={{}}

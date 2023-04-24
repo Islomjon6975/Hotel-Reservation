@@ -122,6 +122,7 @@ export const en = {
 				select_room: 'Select room',
 				room: 'Room',
 				select_position: 'Select position',
+				select_floor: 'Select floor',
 				select_position_info: {
 					title: 'Make sure',
 					content: 'What do you want to move the user?',
