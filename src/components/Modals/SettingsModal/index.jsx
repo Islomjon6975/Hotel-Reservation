@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { ModalContainer } from './style';
-import { CenteredWrapper } from '../../Generic/Styles';
 import { useTranslation } from 'react-i18next';
 import { Typography } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSettingModalVisibility } from '../../redux/modalSlice';
+import { setSettingModalVisibility } from '../../../redux/modalSlice';
+import { CenteredWrapper } from '../../../Generic/Styles';
 const { Text } = Typography;
 
 const SettingsModal = () => {

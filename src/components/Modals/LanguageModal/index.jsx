@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { ModalContainer } from './style';
-import { CenteredWrapper } from '../../Generic/Styles';
 import { Segmented } from 'antd';
-import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { setLangModalVisibility } from '../../redux/modalSlice';
-import { useSegmented } from '../../Generic/SegmentedAPI';
+import { useSegmented } from '../../../Generic/SegmentedAPI';
 import i18next from 'i18next';
+import { CenteredWrapper } from '../../../Generic/Styles';
+import { useMediaQuery } from '../../../hooks/useMediaQuery';
+import { setLangModalVisibility } from '../../../redux/modalSlice';
 
 const LanguageModal = () => {
 	const { t } = useTranslation();

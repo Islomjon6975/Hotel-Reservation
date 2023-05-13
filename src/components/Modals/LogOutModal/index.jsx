@@ -4,7 +4,7 @@ import { ModalContainer } from './style';
 import { useSignOut } from 'react-auth-kit';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLogoutModalVisibility } from '../../redux/modalSlice';
+import { setLogoutModalVisibility } from '../../../redux/modalSlice';
 
 const LogOutModal = () => {
 	const { t } = useTranslation();

@@ -1,13 +1,11 @@
 import { Dropdown } from 'antd';
 import { useDropDown } from '../../Generic/DropDownAPI';
 import { Wrapper } from './style';
-import LogOutModal from '../LogOutModal';
-import LanguageModal from '../LanguageModal';
-import SettingsModal from '../SettingsModal';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setLangModalVisibility, setLogoutModalVisibility, setSettingModalVisibility } from '../../redux/modalSlice';
 import Parameters from '../Reports/Parameters';
+import { LanguageModal, LogOutModal, SettingsModal } from '../Modals';
 
 const Navbar = () => {
 	const navigate = useNavigate();
@@ -21,10 +19,12 @@ const Navbar = () => {
 
 	return (
 		<>
+			{/* ------------------- User Modal ------------------- */}
 			<SettingsModal />
 			<LogOutModal />
 			<LanguageModal />
 			<Parameters />
+			{/* ------------------- Navbar ------------------- */}
 			<Wrapper>
 				<Wrapper.Title onClick={() => navigate('/')}>Nihol</Wrapper.Title>
 				<Dropdown
@@ -36,6 +36,7 @@ const Navbar = () => {
 					<Wrapper.Avatar>I</Wrapper.Avatar>
 				</Dropdown>
 			</Wrapper>
+			{/* ------------------- Outlet ------------------- */}
 			<Outlet />
 		</>
 	);
